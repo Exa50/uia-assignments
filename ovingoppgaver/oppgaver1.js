@@ -10,18 +10,19 @@
     Lag en variabel som skal kunne endres. Variabelen skal representer din alder
 */
 
-let myAge = 42;
+let myAge = 24;
 
 /*
     Oppgave: A
     Lag en variabel som representerer ditt fornavn.
 */
-let name = Jonas
+const fornavn = "Jonas";
 
 /*
     Oppgave: B
     Lag en variabel for å lagre poeng score i et spill
 */
+let score = 0;
 
 
 /*
@@ -29,24 +30,29 @@ let name = Jonas
     Øk verdien av variabelen din fra oppgave B med 5 (dvs dersom den var 0 så skal den bli 5)
     NB! Du skal øke verdien, ikke bare sette den til 5 (husk +)
 */
+function add(score + 5);
+
 
 
 /*
     Oppgave: D
     Ta variabelen din fra oppgave B og gjør den 10 ganger større. 
-*/
+*/ function add(score * 10);
+
 
 
 /*
     Oppgave: E
     Lag en variabel for å lagre et telefon nummer (bruk et fiktift nummer)
 */
+const phoneNumber = 435367;
 
 
 /*
     Oppgave: F
     Lag en variabel som representerer hvorvidt du er en student eller ikke.
 */
+let isStudent = true;
 
 
 /*
@@ -54,9 +60,10 @@ let name = Jonas
     Skriv koden som skal til for at det skal stå noe alla "Hei spiller xxxx din score er xx"
     Her skal xxxx være hentet fra variabelen i oppgave A og xx fra variabelen i oppgave B
 */
-
+console.log("Hei spiller" + fornavn + "din score er" + score);
 /*
     Oppgave: H
     Lag en variabel som skal representere høyest oppnåd score i et spill.
     Set verdien av denne nye variabelen til verdien av variabelen fra oppgave B
 */
+let highscore = score;

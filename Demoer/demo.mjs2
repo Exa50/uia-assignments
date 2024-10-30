@@ -1,0 +1,11 @@
+
+let student = "Olaf";
+let studenter = ["Olaf", "Alexander", Tony];
+
+console.log(studenter[0]);
+
+// Løkker
+// Variabler
+// Conditional
+// Effekt
+// For løkke
