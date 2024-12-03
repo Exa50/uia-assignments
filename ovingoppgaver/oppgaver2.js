@@ -39,8 +39,8 @@ console.log("Debuging er som å være en dektektiv i et krim drama hvor du også
 */
 console.log("Oppgave: B");
 
-const max = 99;
-for (let index = 0; index < max; index--); {
+const min = 0;
+for (let index = 100; index > min; index--); {
   console.log(index + " flasker med brus i kassa");
   console.log(index + " flasker med brus i kassa");
 
@@ -58,6 +58,10 @@ console.log("Ingen flere flasker med brus i kassa");
     Deklarere en variabel for tyngdekraft og en variabel for pi og en variabel for antall personer i et rom. 
 */
 console.log("Oppgave: C");
+const g = 9.81;
+const pi = 3.14;
+let personer = 14;
+
 
 
 
