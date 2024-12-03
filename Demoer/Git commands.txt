@@ -1,0 +1,16 @@
+Git commands
+
+1. git init
+start git in the current folder
+
+2. git add --all
+everything you made gets added
+
+3. git add (+file)
+adds to the list thats Pending save
+
+4. git comit -m"msg"
+adds the list thats pending
+
+5. git push
+sends everything you have saved to git
