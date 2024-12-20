@@ -22,39 +22,50 @@ print("Når begynner vi og spille!");
 //ny
 
 print(title, ANSI.COLOR.GREEN);
+//setTimeout(playgame, 3000);
+playgame();
 
-function playgame(){
+async function playgame(){
 
+    print(ANSI.CLEAR_SCREEN);
+    print(language.title, ANSI.COLOR.RED);
+      //
+    while(isPlaying == true){
 
+    //
+    //async function name(params) { //
 
+        
 
-setTimeout(playgame, 3000);  //
-while(isPlaying == true) //
-async function name(params) { //
+        let player = await askForPlayerChoice();
+        let npc = makeAIChoice();
+    //}//
+
+    print(`${language.youPicked} ${getDesc(player)} ${language.aiPicked} ${getDesc(npc)}`);
+    print(language.winner + evaluateWinner(player, npc));
+
+    isPlaying = false;
     
-print(ANSI.CLEAR_SCREEN);
-print(launguage.title, ANSI.COLOR.RED);
+    }
 
-let player = await askForPlayerChoice();
-let npc = makeAIChoice();
-}//
+    let answer = await rl.question("Play again? (y)es/(n)0:");
+    if (answer.includes(language.confirm)){
+        playgame();    
+        } else {
+        process.exit();
+    }
 
-print(`${launguage.youPicked} ${getDesc(player)} ${launguage.aiPicked} ${getDesc(npc)}`);
-print(launguage.winner + evaluateWinner(player, npc));
+}
 
 print("Vil du spille igjen? (y/n)");
 let replayAnswer = await rl.question("");
 
-if(replayAnswer == "n"){ 
+if(replayAnswer == "n"){ /////////////
     isPlaying = false;
 }
+    
 //ny///////////////////////////////
-let answer = await askPlayer("Play again? (y)es/(n)0:");
-if (answer.includes(launguage.confirm)){
-playgame();    
-} else {
-    process.exit();
-}
+
 
 //ny///////////////////////////////
 // ---- Game functions etc..
@@ -66,22 +77,22 @@ print(ANSI.CURSOR_HOME);
 
 function evaluateWinner(p1Ch, p2Ch) {
     // Vi går ut i fra at spiller 2 vinner :)
-    let result = launguage.player2;
+    let result = language.player2;
 
     // Men vi må sjekke om noe annet skjedde.
     if (p1Ch == p2Ch) {
-        result = launguage.draw;
+        result = language.draw;
     } else if (p1Ch == CHOICES.rock) {
         if (p2Ch == CHOICES.scissors) {
-            result = launguage.player1;
+            result = language.player1;
         }
     } else if (p1Ch == CHOICES.paper) {
         if (p2Ch == CHOICES.rock) {
-            result = launguage.player1;
+            result = language.player1;
         }
     } else if (p1Ch == CHOICES.scissors) {
         if (p2Ch == CHOICES .paper) {
-            result = launguage.player1;
+            result = language.player1;
         }
     }
 
@@ -93,34 +104,34 @@ function makeAIChoice() {
 }
 
 function getDesc(choice) {
-    return launguage.choices[choice - 1]
+    return language.choices[choice - 1]
 }
 
 
-}
+
 async function askForPlayerChoice() {
 
     let choice = null;
 
     do { //spør spilleren om å velge
-        print(launguage.selectionQuestion);
+        print(language.selectionQuestion);
         let rawChocie = await rl.question("");
         rawChocie = rawChocie.toUpperCase();
         choice = evaluatePlayerChoice(rawChocie);
     } while (choice == null) //Kommer til å spørre helt til den er fornøyd
 
     return choice;
-
+}
 
 
 function evaluatePlayerChoice(rawChocie) {
     let choice = null;
 
-    if (rawChocie == launguage.rock) {
+    if (rawChocie == language.rock) {
         choice = CHOICES.rock;
-    } else if (rawChocie == launguage.paper) {
+    } else if (rawChocie == language.paper) {
         choice = CHOICES.paper;
-    } else if (rawChocie == launguage.scissors) {
+    } else if (rawChocie == language.scissors) {
         choice = CHOICES.scissors;
     }
     return choice;
